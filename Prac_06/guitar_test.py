@@ -1,6 +1,6 @@
 from Prac_06.guitars import Guitars
 
-CURRENT_YEAR = 2017
+CURRENT_YEAR = 2020
 
 
 def run_tests():
