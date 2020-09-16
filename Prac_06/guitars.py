@@ -8,21 +8,25 @@ def main():
     while input_name != "":
         input_year = int(input("Year: "))
         input_price = float(input("Price: "))
-        new_guitar = Guitar(input_name, input_year, input_price)
+        new_guitar = Guitars(input_name, input_year, input_price)
         my_guitars.append(new_guitar)
         print(new_guitar, "Added")
         input_name = input("Name: ")
 
-    my_guitars.append(Guitar("Gibson L-5 CES", 1922, 16035.40))
-    my_guitars.append(Guitar("Line 6 JTV-59", 2010, 1512.9))
+    my_guitars.append(Guitars("Gibson L-5 CES", 1922, 16035.40))
+    my_guitars.append(Guitars("Line 6 JTV-59", 2010, 1512.9))
 
-    for i, guitar in enumerate(my_guitars, 1):
-        if guitar.is_vintage():
-            vintage_string = " (vintage)"
-        else:
+    if Guitars:
+        Guitars.sort()
+        print("These are my guitars:")
+        for i, guitar in enumerate(Guitars):
             vintage_string = ""
-        print("Guitar {}: {:>20} ({}), worth ${:10,.2f}{}".format(i, guitar.name, guitar.year,
-                                                                  guitar.cost, vintage_string))
+            if guitar.is_vintage():
+                vintage_string = "(vintage)"
+            print("Guitar {0}: {1.name:>30} ({1.year}), worth ${1.cost:10,.2f}\
+             {2}".format(i + 1, guitar, vintage_string))
+    else:
+        print("No guitars :( Quick, go and buy one!")
 
 
 main()
